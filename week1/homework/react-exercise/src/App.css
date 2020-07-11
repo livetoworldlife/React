@@ -1,0 +1,65 @@
+body {
+  text-align: center;
+}
+.App-header {
+  background-color: #282c34;
+  height: 45vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+/* extreme-hobbies.js css part*/
+.App-header ul{
+  list-style-type: none;
+}
+
+/* perfect-customer-service.js  css part*/
+section{
+  height: 43vh;
+}
+.services{
+  padding: 4%;
+  display: flex;
+  flex-direction: row;
+}
+.guarantee{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* counter.js  css part*/
+article{
+  margin: 0% 6%;
+  display: flex;
+  flex-direction: column;
+}
+.counter{
+  background-color:rgb(255, 255, 255);
+  color: #282c34;
+  padding: 15px 32px;
+  font-size: 16px;
+  margin: 4px 2px;
+}
+.counter-container button{
+  background-color: #555555;
+  color: aliceblue;
+  border: none;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+/* footer css part*/
+footer{
+  height: 10vh;
+  color: white;
+  background-color: #18343b;
+}
+footer p{
+  padding: 2%;
+}
