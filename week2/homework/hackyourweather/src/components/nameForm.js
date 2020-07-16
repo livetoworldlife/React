@@ -2,42 +2,41 @@ import React, { useState } from "react";
 import { useInput } from './inputhook';
 import CityData from './cards';
 
-export default function NameForm(props) {
+export default function NameForm() {
   const { value, bind, reset } = useInput('');
   const [dataState, setDataState] = useState([])
   const [isError, setError] = useState(false);
   const [descError, setDescError] = useState('');
   const [isLoading, setLoading] = useState(false);
 
-  const fetchCity = (cityName) => {
-    const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
-    fetch(URL)
-      .then(res => res.json())
-      .then(data => {
-        const {
-          id,
-          name,
-          sys: { country },
-          weather: [{ main, description }],
-          main: { temp_min, temp_max },
-          coord: { lat, lon } } = data;
+  const fetchCity = async (cityName) => {
+    try {
+      setLoading(true);
+      const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
+      const URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
+      const response = await fetch(URL);
+      const data = await response.json();
+      const {
+        id,
+        name,
+        sys: { country },
+        weather: [{ main, description }],
+        main: { temp_min, temp_max },
+        coord: { lat, lon } } = data;
 
-        const newWeather = { id, name, country, main, description, temp_min, temp_max, lat, lon };
-        setDataState([...dataState, newWeather]);
-        setError(false);
-      })
-      .catch(err => {
-        setError(true);
-        setDescError(err.message);
-      })
-      .finally(
-        setLoading(false)
-      )
+      const newWeather = { id, name, country, main, description, temp_min, temp_max, lat, lon };
+      setDataState([...dataState, newWeather]);
+      setError(false);
+    } catch (error) {
+      setError(true);
+      setDescError(error.message);
+    } finally {
+      setLoading(false)
+    }
+
   };
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    setLoading(true);
     fetchCity(value);
     reset();
   }
