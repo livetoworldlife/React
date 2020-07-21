@@ -18,7 +18,7 @@ function Count(props) {
   return (<div className="counter">{count}</div>);
 }
 
-function Button(prop) {
+function Button(props) {
   const { onClick } = prop;
   return (
     <button onClick={onClick}>Add 1!</button>);
