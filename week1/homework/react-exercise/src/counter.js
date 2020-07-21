@@ -13,7 +13,7 @@ export default function Counter() {
   )
 }
 
-function Count(prop) {
+function Count(props) {
   const { count } = prop;
   return (<div className="counter">{count}</div>);
 }
