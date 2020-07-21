@@ -34,10 +34,10 @@ function GuaranteeList() {
       description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit.Dignissimos voluptatum."
     },
   ];
-  const servicesDiv = services.map((service, key) => <Guarantee key={key} service={service} />);
+
   return (
     <div className="services">
-      {servicesDiv}
+      { services.map((service, key) => <Guarantee key={key} service={service} />)}
     </div>
   );
 }
