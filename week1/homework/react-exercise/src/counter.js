@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 export default function Counter() {
   const [count, setCount] = useState(0);
-  const clickToCount = () => setCount(count + 1);
+  const incrementCount = () => setCount(count + 1);
   const feedback = count > 10 ? "It's higher than 10!" : "Keep counting.......";
   return (
     <div className="counter-container">
       <p>{feedback}</p>
-      <Button onClick={clickToCount} />
+      <Button onClick={incrementCount} />
       <Count count={count} />
     </div>
   )
