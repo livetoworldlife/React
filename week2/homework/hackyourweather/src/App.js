@@ -1,5 +1,5 @@
 import React from 'react';
-import NameForm from './components/nameForm';
+import WeatherForm from './components/WeatherForm';
 
 
 import './App.css';
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <h1> Weather </h1>
-      <NameForm />
+      <WeatherForm />
     </div>
   );
 }
