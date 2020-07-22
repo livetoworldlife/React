@@ -18,12 +18,15 @@ export default function DogGallery() {
       })
   };
 
-  let dogLi = (dogPhotos.length === 0) ? <p>Get your first dog by clicking the button!</p> : dogPhotos.map((dogPhoto, index) => <DogPhoto key={index} dogPhoto={dogPhoto} index={index} />);
+  let dogLi = ;
   return (
     <div className="dogs">
       <Button onClick={getDogPhoto} />
       {isLoading && <p>Loading...</p>}
-      {!isError && <ul>{dogLi}</ul>}
+      {!isError
+        && <ul>{(dogPhotos.length === 0) ?
+          <p>Get your first dog by clicking the button!</p> :
+          dogPhotos.map((dogPhoto, index) => <DogPhoto key={index} dogPhoto={dogPhoto} index={index} />)}</ul>}
       {isError && <p>Something went wrong</p>}
     </div>
   )
