@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useInput } from './inputhook';
-import CityData from './cards';
+import { useInput } from './InputCustomHook';
+import CityData from './WeatherCards';
 
-export default function NameForm() {
+export default function WeatherForm() {
   const { value, bind, reset } = useInput('');
   const [dataState, setDataState] = useState([])
   const [isError, setError] = useState(false);
