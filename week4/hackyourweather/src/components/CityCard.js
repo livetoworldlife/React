@@ -3,7 +3,7 @@
 // 2- city weather delete action
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
-
+import { Link } from 'react-router-dom';
 export const CityCard = ({ cityWeather }) => {
   const { id, name, country, main, description, temp_min, temp_max, lat, lon } = cityWeather;
   // delete CityWeatherData action which was imported from GlobalState
@@ -14,11 +14,14 @@ export const CityCard = ({ cityWeather }) => {
       <div className="close" >
         <button onClick={() => deleteCityWeatherData(cityWeather.id)}> X </button>
       </div>
-      <h4>
-        <a href={id}>
+      <Link to={`/${id}`}>
+        <h4>
+
           {name},{country}
-        </a>
-      </h4>
+
+        </h4>
+      </Link>
+
       <h6>{main}</h6>
       <p>{description}</p>
       <p>min temp: {(temp_min - 273.15).toFixed(1)}</p>
