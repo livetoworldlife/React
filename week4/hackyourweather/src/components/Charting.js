@@ -25,17 +25,13 @@ export default function Charting() {
     const getCityForecastData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${API_KEY}&units=metric`
-        );
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=${API_KEY}&units=metric`);
 
         const cityForecastData = await response.json();
-        console.log(cityForecastData);
         setCityForecastList(cityForecastData.list);
         setCityName(cityForecastData.city.name);
         setLoading(false);
       } catch (err) {
-        console.log(err);
         setError(true);
         setLoading(false);
       }
